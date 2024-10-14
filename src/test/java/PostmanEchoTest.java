@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Test;
+
 import static io.restassured.RestAssured.given;
+
 public class PostmanEchoTest {
+
     @Test
     void shouldReturnSendData() {
         String text = "Hello";
@@ -11,6 +14,6 @@ public class PostmanEchoTest {
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("data", org.hamcrest.Matchers.equalTo("Hi"));
+                .body("data", org.hamcrest.Matchers.equalTo(text));
     }
 }
